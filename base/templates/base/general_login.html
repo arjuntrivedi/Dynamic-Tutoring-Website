@@ -1,0 +1,79 @@
+{% block nav %}{% include 'base/general_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+<!-- Minified CSS and JS -->
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Edu+NSW+ACT+Foundation:wght@500&family=Roboto+Mono:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous">
+</script>
+
+{% load socialaccount %}
+{% if user.is_authenticated %}
+    <body>
+    <div class="d-flex flex-column align-items-center">
+        <p>You are currently logged in as {{ user.username }}</p>
+        <p>Select Your Role:</p>
+        <form action="#" method="get">
+            <input class="btn btn-primary" type="submit" class="btn" value="student" name="student">
+            <input class="btn btn-primary" type="submit" class="btn" value="tutor" name="tutor">
+        </form>
+        <a href="/logout">Logout</a>
+    </div>
+    </body>
+
+{% else %}
+    <body class="loginBody">
+    <section>
+        <div class="form-box">
+            <div class="form-value">
+                <form action="">
+                    <h2 class="loginHeader">Login</h2>
+                    <div class="inputbox">
+                        <ion-icon name="person-outline"></ion-icon>
+                        <input type="email" required>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="inputbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" required>
+                        <label for="">Password</label>
+                    </div>
+                    {#                    <div class="forget">#}
+                    {#                        <label for=""><input type="checkbox">Remember Me</label>#}
+                    {#                        <a href="#">Forget Password?</a>#}
+                    {#                    </div>#}
+                    <button class="loginButton">Login</button>
+                    <div class="or"> Or </div>
+                    <div class="googleButton">
+                        <div class="GoogleButton">
+                            <div class="col-md-3">
+                                <a class="btn btn-outline-light" href="{% provider_login_url 'google' %}" role="button"
+                                   style="text-transform:none">
+                                    <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+                                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"/>
+                                    Login with Google
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="register">
+                        <p>Don't have an account? <a href="/accounts/signup/">Register</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </body>
+{% endif %}

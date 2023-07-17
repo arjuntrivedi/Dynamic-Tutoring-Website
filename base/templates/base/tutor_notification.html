@@ -1,0 +1,56 @@
+{% block nav %}{% include 'base/Tutor_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+
+<!-- PAGE TITLE -->
+<div style="height: 50px;"></div>
+<div class="d-flex flex-column align-items-center">
+  <h1 style="color:aliceblue;">Your Notifications</h1>
+</div>
+<div style="height: 30px;"></div>
+
+
+<!-- LIST OF NOTIFICATIONS -->
+<div class="d-flex flex-column align-items-center">
+    <div style="height: 10px;"></div>
+    {% for notification in notifications %} 
+    <div class="text-center mt-2 col-md-12">
+        <ol>
+            {% if notification.info == "0" %}                 
+                
+                <form>
+                    <button class="btn btn-outline-light" >{{notification.student}} has requested you as a tutor for {{notification.course}}</button>
+                </form>
+
+                <div class="d-flex flex-row justify-content-center">
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="info" value='1'>
+                        <input type="hidden" name="student" value='{{notification.student}}'>
+                        <input type="hidden" name="course" value='{{notification.course}}'>
+                        <button type="submit" class="btn btn-success" >Accept</button>
+                    </form>
+
+                    <div style="width: 10px;"></div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="info" value='2'>
+                        <input type="hidden" name="student" value='{{notification.student}}'>
+                        <input type="hidden" name="course" value='{{notification.course}}'>
+                        <button type="submit" class="btn btn-outline-danger" >Reject</button>
+                    </form>
+                </div>
+                
+            {% elif notification.info == "1" %} 
+                <p style="color:aliceblue;">You have accepted {{notification.student}}'s request for {{notification.course}}</p>
+            {% elif notification.info == "2" %} 
+                <p style="color:aliceblue;">You have rejected {{notification.student}}'s request for {{notification.course}}</p>
+            {% endif %} 
+        </ol>
+    </div>
+    {% endfor %}
+
+</div>

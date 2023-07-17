@@ -1,0 +1,68 @@
+{% block nav %}{% include 'base/tutor_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- PAGE TITLE -->
+<div style="height: 70px;"></div>
+<div class="d-flex flex-column align-items-center">
+  <h1 style="color:aliceblue;">Add Course to Profile</h1>
+</div>
+<div style="height: 20px;"></div>
+
+
+<!-- SEARCH BAR -->
+<div class="row">
+  <div class="col-lg-8 mx-auto">
+    <div class="p-5">
+      
+      <form action="{% url 'base:tutor-course-lookup' %}" method="get">
+        <div class="p-1 rounded rounded-pill shadow-sm">
+          <div class="input-group">
+            <input name="q" type="text" placeholder="Search for a course...?" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+            <div class="input-group-append" >
+              <button id="button-addon1" type="submit" class="btn btn-link text-primary"><i class="fa fa-search" style="color:aliceblue;"></i></button>
+            </div>
+          </div>
+        </div>
+      </form>
+  
+      </div>
+  </div>
+</div>
+
+
+<!-- LIST OF COURSES -->
+<div class="d-flex flex-column align-items-center">
+  <div style="height: 10px;"></div>
+  <ul style"list-style-type: none;">
+    {% for course in object_list %}
+
+      <div class="text-center mt-2 col-md-12">
+        <ol>
+          <div class="d-flex flex-row justify-content-center">
+              <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="department" value='{{ course.department }}'>
+                <input type="hidden" name="number" value='{{ course.number }}'>
+                <input type="hidden" name="name" value='{{ course.name }}'>
+                <button type="submit" class="btn btn-outline-light" >{{course.department}} {{course.number}} {{course.name}}</button>
+              </form>
+
+              <div style="width: 10px;"></div>
+
+              <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="department" value='{{ course.department }}'>
+                <input type="hidden" name="number" value='{{ course.number }}'>
+                <input type="hidden" name="name" value='{{ course.name }}'>
+                <button type="submit" class="btn btn-success" >add</button>
+            </form>
+          </div>
+        </ol>
+      </div>
+    {% endfor %}
+  </ul>
+</div>
+

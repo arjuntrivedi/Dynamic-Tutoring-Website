@@ -1,0 +1,328 @@
+/*Source: https://www.devbabu.com/css-responsive-navigation-bar-with-logo/
+Nav Bar(Start)*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background: white url("images/background.png") no-repeat !important;
+    background-size: cover !important;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+
+.navHeader {
+    background-color: #2a2a3b;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+header .wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo1 img {
+    height: 50px;
+    display: block;
+    transform: translateX(-50%)
+}
+
+.navbar1 {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    transition: left 0.3s;
+}
+
+.navbar1.show {
+    left: 0 !important;
+}
+
+.hide-scroll {
+    overflow: hidden;
+}
+
+.navbar1 ul {
+    all: unset;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.navbar1 ul a {
+    all: unset;
+    color: #8075FF;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-size: 28px;
+}
+
+.navbar1 ul a:hover {
+    color: #CAD5CA;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+}
+
+@media (min-width: 550px) {
+    .navbar1 {
+        all: unset;
+        display: block;
+    }
+
+    .navbar1 ul {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .navbar1 ul a {
+        font-size: inherit;
+    }
+
+    .close-nav,
+    .menu-bar {
+        display: none;
+    }
+}
+
+/*Source: https://www.devbabu.com/css-responsive-navigation-bar-with-logo/
+Nav Bar(End)*/
+
+/*Login Page (Start)*/
+.loginBody {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Arial', sans-serif;
+}
+
+section {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 90vh !important;
+    width: 100% !important;
+}
+
+.form-box {
+    position: relative !important;
+    width: 400px !important;
+    height: 450px !important;
+    background: transparent !important;
+    border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 20px !important;
+    backdrop-filter: blur(15px) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.loginHeader {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 2.1em;
+    color: white;
+    text-align: center;
+}
+
+.or {
+    font-family: 'DM Sans', sans-serif;
+    transform: translateY(40%);
+    color: white;
+    text-align: center;
+}
+
+.inputbox {
+    position: relative;
+    margin: 30px 0;
+    width: 310px;
+    border-bottom: 2px solid white;
+}
+
+.inputbox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
+}
+
+.inputbox input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    padding: 35px 0 5px;
+    color: white;
+}
+
+.inputbox ion-icon {
+    position: absolute;
+    right: 8px;
+    color: white;
+    font-size: 1.2em;
+    top: 20px;
+}
+
+.forget {
+    margin: -15px 0 15px;
+    font-size: .9em;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.forget label input {
+    margin-right: 3px;
+}
+
+.forget label a {
+    color: white;
+    text-decoration: none;
+}
+
+.forget label a:hover {
+    text-decoration: underline;
+}
+
+.loginButton {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    background: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    display: block;
+}
+
+.loginButton:hover {
+    color: black;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    display: block;
+}
+
+.googleButton {
+    transform: translateX(15%) translateY(50%) !important;
+    display: block;
+}
+
+.or {
+    align-items: center;
+}
+
+.register {
+    font-size: .9em;
+    color: white;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.register p a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.register p a:hover {
+    text-decoration: underline;
+}
+/*Login Page (End)*/
+
+/*Tutor NavBar(Start)*/
+header .logo2 img {
+    height: 50px;
+    display: block;
+    transform: translateX(-300%) translateY(40%); /*LOGO TRANSFORMATIONS*/
+}
+
+.navbar2 {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 20px;
+    transition: left 0.3s;
+}
+
+.navbar2.show {
+    left: 0 !important;
+}
+
+.navbar2 ul {
+    all: unset;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    gap: 25px;
+    transform: translateX(5%) translateY(-35%)!important;
+}
+
+.navbar2 ul a {
+    all: unset;
+    color: #8075FF;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: bold !important;
+    font-size: 15px !important;
+}
+
+.navbar2 ul a:hover {
+    color: #CAD5CA;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+@media (min-width: 550px) {
+    .navbar2 {
+        all: unset;
+        display: block;
+    }
+
+    .navbar2 ul {
+        flex-direction: row;
+        gap: 25px !important;
+    }
+
+    .navbar2 ul a {
+        font-size: inherit;
+    }
+}
+/*Tutor Navbar(End)*/

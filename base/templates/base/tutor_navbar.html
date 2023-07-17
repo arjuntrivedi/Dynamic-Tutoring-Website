@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="icon" href="http://example.com/favicon.png">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Tutors</title>
+    <link rel="icon" type="image/x-icon" href={% static "base/images/uva.png" %}>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #2a2a3b">
+    <a class="navbar-brand">
+        </a><a href="/tutor-home"><img src={% static "base/images/uva.png" %} width="50" height="50"></a>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarCenteredExample">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item"><a style="color: #F8F0FB" class="nav-link" href="/tutor-notification">Notifications</a></li>
+            <li class="nav-item"><a style="color: #F8F0FB" class="nav-link" href="/tutor-view-courses">My Courses</a></li>
+            <li class="nav-item"><a style="color: #F8F0FB" class="nav-link" href="/tutor-view-rate">Hourly Rate</a></li>
+            <li class="nav-item"><a style="color: #F8F0FB" class="nav-link" href="/tutor-view-timeframes">Time Frames</a></li>
+        </ul>
+    </div>
+    <a class="nav-link" href="/logout">
+        <button class="btn btn-outline-light" type="button">Log Out</button>
+      </a>
+</nav>

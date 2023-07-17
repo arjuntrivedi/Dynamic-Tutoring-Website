@@ -1,0 +1,251 @@
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+    <html class="joe" style="background: #211A1D">
+    <head>
+        {% load static %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block head_title %}{% endblock %}</title>
+        {% block extra_head %}
+        {% endblock %}
+    </head>
+    <body class="elmo">
+    <header class="navHeader">
+        <div class="wrapper">
+            <div class="logo1">
+                <a href="/"><img src={% static "base/images/uva.png" %}></a>
+            </div>
+            <div class="navbar1">
+                <div class="close-nav">
+                    <button>×</button>
+                </div>
+            </div>
+            <div class="menu-bar">
+                <button><i></i></button>
+            </div>
+        </div>
+    </header>
+    </body>
+
+    <h1>{% trans "Sign In" %}</h1>
+
+    {% get_providers as socialaccount_providers %}
+
+    {% if socialaccount_providers %}
+        <p>{% blocktrans with site.name as site_name %}Please sign in with one
+            of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+            for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+        <div class="socialaccount_ballot">
+
+            <ul class="socialaccount_providers">
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
+
+            <div class="login-or">{% trans 'or' %}</div>
+
+        </div>
+
+        {% include "socialaccount/snippets/login_extra.html" %}
+
+    {% else %}
+        <p>{% blocktrans %}If you have not created an account yet, then please
+            <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+    {% endif %}
+
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+    </form>
+
+{% endblock %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 5px;
+    }
+
+    .joe {
+        font-family: 'Poppins', sans-serif;
+        color: #CAD5CA;
+        background: #2a2a3b;
+        margin: 0;
+    }
+
+    .pony {
+        background: white;
+    }
+
+    input {
+        background: transparent;
+        align-items: center;
+        width: 500px;
+        height: 25px;
+        margin: 0 auto;
+        outline: 0;
+        border-width: 0 0 1px;
+        border-color: #8075FF;
+    }
+
+    input, select, textarea {
+        color: #edf0f1;
+    }
+
+    input::placeholder {
+        color: #746B76;
+    }
+
+    input:focus {
+        border-color: #d2d4d5;
+    }
+
+    button {
+        background: #333;
+        color: #d2d4d5;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 40px;
+        font-size: 1rem;
+        cursor: pointer;
+        height: 40px;
+        font-weight: 600;
+    }
+
+    button:hover {
+        color: #8075FF;
+        box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+    }
+
+    strong {
+        transform: translateX(100%);
+        padding: 1rem;
+    }
+
+    li {
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        list-style: none;
+        padding: 1rem;
+        border: 1px solid #8075FF;
+        border-radius: 4px;
+        background-color: #8075FF;
+        margin: 1rem 0;
+    }
+
+    li a {
+        color: #6320EE;
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
+    .joe {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    .elmo {
+        background-size: cover !important;
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+    }
+
+    .navHeader {
+        background-color: #2a2a3b !important;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        padding: 0px 0px;
+        transform: translateY(-10px) translateX(-10px);
+        height: 70px;
+        width: 102%;
+    }
+
+    header .wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header .logo1 img {
+        height: 50px;
+        display: block;
+        transform: translateX(-38.5px) translateY(-26.5px);
+    }
+
+    .navbar1 {
+        position: fixed;
+        top: 0;
+        left: 100%;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        padding: 20px;
+        transition: left 0.3s;
+    }
+
+    .navbar1.show {
+        left: 0 !important;
+    }
+
+    .hide-scroll {
+        overflow: hidden;
+    }
+
+    .navbar1 ul {
+        all: unset;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .navbar1 ul a {
+        all: unset;
+        color: #8075FF;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-weight: bold !important;
+        font-size: 28px;
+    }
+
+    .navbar1 ul a:hover {
+        color: #CAD5CA;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+    }
+
+    @media (min-width: 550px) {
+        .navbar1 {
+            all: unset;
+            display: block;
+        }
+
+        .navbar1 ul {
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .navbar1 ul a {
+            font-size: inherit;
+        }
+
+        .close-nav,
+        .menu-bar {
+            display: none;
+        }
+    }
+</style>
+</html>

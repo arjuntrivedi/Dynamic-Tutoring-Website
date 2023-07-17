@@ -1,0 +1,22 @@
+{% block nav %}{% include 'base/general_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+
+<div class="d-flex flex-column align-items-center">
+    <div style="height: 270px;"></div>
+    <h1 style="color:aliceblue">Do you wish to log out?</h1>
+    <div class="d-flex flex-column align-items-center">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-outline-light" type="submit" value="Logout">
+                Confirm Logout
+            </button>
+        </form>
+    </div>
+</div>
+</html>

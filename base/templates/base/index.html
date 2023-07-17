@@ -1,0 +1,45 @@
+{% block nav %}{% include 'base/general_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+<title>Tutor Me</title>
+
+<body class="joemama">
+<div class="container">
+    <h1> <span class="auto-type"></span></h1>
+</div>
+
+{#Source for animation: https://www.youtube.com/watch?v=qEcXe51-ZTw&ab_channel=EasyTutorials#}
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+    var typed = new Typed(".auto-type",{
+        strings: ["Tutor Me", "Learning", "Success"],
+        typeSpeed: 150,
+        backSpeed:150,
+        loop: true
+    })
+</script>
+
+<style>
+    .joemama {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    .container{
+        width: 100%;
+        color: #fff;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(190%) translateX(37%);
+    }
+
+    .container h1{
+        font-size: 80px;
+        font-weight: 600;
+    }
+    span{
+        color: #F8F0FB;
+    }
+</style>
+</body>

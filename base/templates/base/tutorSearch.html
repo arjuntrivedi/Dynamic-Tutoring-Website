@@ -1,0 +1,18 @@
+{#{% block nav %}{% include 'base/navbar.html' %}{% endblock nav %}#}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+
+<div class="d-flex flex-column align-items-center">
+    <div style="height: 10px;"></div>
+    <h1>Tutors</h1>
+    {% for i in response %}
+        <strong>{{ name}}  </strong>
+        <a> {{ hourly_rate }}</a>
+        <a> {{ time_frames }}</a>
+        <a> {{ classes }}</a>
+    {% endfor %}
+    <div style="height: 10px;"></div>
+</div>
+
+<div class="d-flex justify-content-center"></div>

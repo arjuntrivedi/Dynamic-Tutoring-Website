@@ -1,0 +1,10 @@
+{% block nav %}{% include 'base/general_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+
+<div class="d-flex flex-column align-items-center">
+    <div style="height: 10px;"></div>
+    <a>You are not authorized as a {{role}}</a>
+    <div style="height: 10px;"></div>
+</div>

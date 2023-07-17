@@ -1,0 +1,60 @@
+{% block nav %}{% include 'base/tutor_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+
+<!-- PAGE TITLE -->
+<div style="height: 50px;"></div>
+<div class="d-flex flex-column align-items-center">
+    <h1 style="color:aliceblue;">Your Posted Courses for Tutoring</h1>
+</div>
+<div style="height: 30px;"></div>
+
+<!-- LIST OF COURSES -->
+<div class="d-flex flex-column align-items-center">
+    <ul style="list-style-type: none">
+        {% for course in tutor_courses %}
+            {#        <div class="text-center mt-2 col-md-12">#}
+            {#          <ol>#}
+            {#            <div class="d-flex flex-row justify-content-center">#}
+            {#                <form>#}
+            {#                    <button class="btn btn-outline-light" >{{course.department}} {{course.number}} {{course.name}}</button>#}
+            {#                </form>#}
+            {##}
+            {#                <div style="width: 10px;"></div>#}
+
+            <form method="post">
+                <table class="table" style="color:#CAD5CA;">
+                    {{ course.department }} {{ course.number }} {{ course.name }}
+
+                    <input type="hidden" name="department" value='{{ course.department }}'>
+                    <input type="hidden" name="number" value='{{ course.number }}'>
+                    <input type="hidden" name="name" value='{{ course.name }}'>
+                    <button type="submit" class="btn btn-outline-danger">remove</button>
+                </table>
+                {% csrf_token %}
+            </form>
+            {#            </div>#}
+            {#          </ol>#}
+            {#        </div>#}
+        {% endfor %}
+    </ul>
+    <a class="nav-link" href="/tutor-course-lookup">
+        <button class="btn btn-outline-success" type="button">+ Add Courses</button>
+    </a>
+</div>
+
+<style>
+    * {
+        color: white;
+    }
+
+    form {
+        text-align: center;
+    }
+
+    h1 {
+        font-family: "Open Sans", sans-serif;
+        color: white;
+    }
+</style>

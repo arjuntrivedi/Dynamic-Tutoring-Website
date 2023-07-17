@@ -1,0 +1,52 @@
+{% block nav %}{% include 'base/student_navbar.html' %}{% endblock nav %}
+
+{% load static %}
+{#Source: https://www.youtube.com/watch?v=rc50owRPdUI&ab_channel=EasyTutorials#}
+<link rel="stylesheet" type="text/css" href="{% static 'base/styles.css' %}">
+<div class="container1">
+    <div class="text-box">
+        <p>Welcome, Student</p>
+        <h1>{{ user }}</h1>
+    </div>
+</div>
+
+<style>
+    .text-box {
+        color: #F8F0FB;
+        position: absolute;
+        bottom: 8%;
+    }
+
+    .text-box p {
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    .text-box h1 {
+        text-transform: uppercase;
+
+        font-size: 190px;
+        line-height: 160px;
+        margin-left: -10px;
+        color: transparent;
+        -webkit-text-stroke: 1px white;
+        background: url(/static/base/images/stripes.png);
+        -webkit-background-clip: text;
+        background-position: 0 0;
+        animation: back 20s linear infinite;
+    }
+
+    @keyframes back {
+        100% {
+            background-position: 2000px 0;
+        }
+    }
+
+    .text-box a {
+        color: #F8F0FB;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin-right: 20px;
+        border: 2px solid #F8F0FB;
+    }
+</style>
