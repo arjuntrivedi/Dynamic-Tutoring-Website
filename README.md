@@ -1,4 +1,4 @@
-# Dynamic Tutoring Website
+# Dynamic Tutoring Website - _Tutor Me_
 Students are often looking for tutors for courses. This app will help facilitate this matching.
 
 ## Table of Content:
