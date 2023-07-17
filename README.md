@@ -13,6 +13,11 @@ Students are often looking for tutors for courses. This app will help facilitate
 https://project-a-12-cs3240.herokuapp.com/
 
 
+
+![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/22fd3dd8-daa5-42ce-9e8b-8a2f9acd0119)
+![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/3581dfa3-6966-4878-bfd4-f7992aafcf61)
+
+
 ## Technologies
 I used `HTML/CSS`, `Bootstrap`, `JavaScript`, `Django`, `Heroku`, `GitHub Actions`, and `Google API`
 
