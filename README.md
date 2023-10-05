@@ -16,6 +16,9 @@ https://project-a-12-cs3240.herokuapp.com/
 ![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/2f1a8587-bb18-45b9-95a0-56e36770e8f7)
 ![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/22fd3dd8-daa5-42ce-9e8b-8a2f9acd0119)
 ![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/3581dfa3-6966-4878-bfd4-f7992aafcf61)
+![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/b09280c6-373e-49dd-ab75-fe1ac0a5a84f)
+![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/588a93c0-19fa-412a-9a64-170a4939339f)
+![image](https://github.com/arjuntrivedi/Dynamic-Tutoring-Website/assets/72959325/1d922330-cd01-4ed4-9b77-c2538fe2de64)
 
 
 ## Technologies
